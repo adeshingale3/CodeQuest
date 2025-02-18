@@ -41,6 +41,19 @@ const challenges = [
 const Dashboard = () => {
   const navigate = useNavigate();
 
+  const getDifficultyVariant = (difficulty: string) => {
+    switch (difficulty) {
+      case "Easy":
+        return "outline";
+      case "Medium":
+        return "secondary";
+      case "Hard":
+        return "destructive";
+      default:
+        return "default";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -59,15 +72,7 @@ const Dashboard = () => {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle>{challenge.title}</CardTitle>
-                    <Badge
-                      variant={
-                        challenge.difficulty === "Easy"
-                          ? "success"
-                          : challenge.difficulty === "Medium"
-                          ? "warning"
-                          : "destructive"
-                      }
-                    >
+                    <Badge variant={getDifficultyVariant(challenge.difficulty)}>
                       {challenge.difficulty}
                     </Badge>
                   </div>

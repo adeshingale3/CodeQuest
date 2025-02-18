@@ -1,4 +1,3 @@
-
 import { Navbar } from "@/components/Navbar";
 import {
   Card,
@@ -122,11 +121,7 @@ const Profile = () => {
                       </div>
                       <div className="flex items-center space-x-2">
                         <Badge
-                          variant={
-                            activity.status === "Completed"
-                              ? "success"
-                              : "secondary"
-                          }
+                          variant={activity.status === "Completed" ? "outline" : "secondary"}
                         >
                           {activity.status}
                         </Badge>
