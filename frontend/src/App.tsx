@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import { UserProvider } from '@/contexts/UserContext';
 
 const queryClient = new QueryClient();
+const tele = window.Telegram.WebApp;
 
 const App = () => {
   // This is temporary until we integrate with backend
