@@ -1,4 +1,4 @@
-# Online Coding Platform
+# CodeQuest - An Oniline Coding Platform
 
 ## Overview
 This project is an **Online Coding Platform** where users can solve coding challenges, earn points, and get ranked on a leaderboard. Additionally, a **Telegram bot** is integrated.
