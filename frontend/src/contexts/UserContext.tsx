@@ -21,21 +21,33 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
   const fetchUserData = async () => {
-    const token = localStorage.getItem('accessToken');
+    let token = localStorage.getItem('accessToken');
     if (!token) return;
 
     try {
-      const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.PROFILE}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
+        let response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.PROFILE}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.status === 401) {
+            const newToken = await refreshToken();
+            if (newToken) {
+                response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.PROFILE}`, {
+                    headers: {
+                        'Authorization': `Bearer ${newToken}`
+                    }
+                });
+            }
         }
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setUser(data);
-      }
+
+        if (response.ok) {
+            const data = await response.json();
+            setUser(data);
+        }
     } catch (error) {
-      console.error('Error fetching user data:', error);
+        console.error('Error fetching user data:', error);
     }
   };
 
@@ -57,6 +69,29 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       }
     } catch (error) {
       console.error('Error updating points:', error);
+    }
+  };
+
+  const refreshToken = async () => {
+    const refresh = localStorage.getItem('refreshToken');
+    if (!refresh) return null;
+
+    try {
+        const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.REFRESH_TOKEN}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ refresh }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem('accessToken', data.access);
+            return data.access;
+        }
+    } catch (error) {
+        console.error('Error refreshing token:', error);
     }
   };
 
