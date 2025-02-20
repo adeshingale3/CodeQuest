@@ -4,12 +4,14 @@
 This project is an **Online Coding Platform** where users can solve coding challenges, earn points, and get ranked on a leaderboard. Additionally, a **Telegram bot** is integrated.
 
 ### Tech Stack:
-- **Frontend**: React (Vite)
+- **Frontend**: React (Vite) + Tailwind css
 - **Backend**: Django
 - **Database**: MySQL
 - **Telegram Bot**: Telegraf.js
+- **JWT**: Authentication
 
 ---
+
 
 ## Project Structure
 ```
