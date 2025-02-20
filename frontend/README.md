@@ -1,69 +1,87 @@
-# Welcome to your Lovable project
+# Online Coding Platform
 
-## Project info
+## Overview
+This project is an **Online Coding Platform** where users can solve coding challenges, earn points, and get ranked on a leaderboard. Additionally, a **Telegram bot** is integrated.
 
-**URL**: https://lovable.dev/projects/341b0d19-ddfc-49f2-88b2-59bb6fa517e3
+### Tech Stack:
+- **Frontend**: React (Vite)
+- **Backend**: Django
+- **Database**: MySQL
+- **Telegram Bot**: Telegraf.js
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/341b0d19-ddfc-49f2-88b2-59bb6fa517e3) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Project Structure
+```
+|-- frontend/        # Frontend React Application
+|   |-- src/        # Source code
+|   |-- Bot/        # Telegram Bot
+|-- backend/        # Backend Django Application
+|   |-- codequest/  # Django project
+|   |-- venv/       # Virtual environment
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Installation & Setup
 
-**Use GitHub Codespaces**
+### Backend Setup
+1. Navigate to the `backend` directory:
+   ```sh
+   cd backend
+   ```
+2. Move into the Django project directory:
+   ```sh
+   cd codequest
+   ```
+3. Activate the virtual environment:
+   ```sh
+   venv\Scripts\activate  # Windows
+   ```
+4. Start the Django server:
+   ```sh
+   python manage.py runserver
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Frontend Setup
+1. Navigate to the `frontend` directory:
+   ```sh
+   cd frontend
+   ```
+2. Install dependencies:
+   ```sh
+   npm i
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-## What technologies are used for this project?
+### Running the Telegram Bot
+1. Navigate to the `bot` directory inside `frontend`:
+   ```sh
+   cd frontend
+   cd bot
+   ```
+2. Start the bot:
+   ```sh
+   node bot.js
+   ```
 
-This project is built with .
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Features
+- Users can solve coding challenges.
+- Points are awarded based on performance.
+- Leaderboard ranks users based on points.
+- Integrated Telegram bot.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/341b0d19-ddfc-49f2-88b2-59bb6fa517e3) and click on Share -> Publish.
+## Database
+- MySQL is used as the primary database.
+- Make sure to configure database settings in the `backend` project.
 
-## I want to use a custom domain - is that possible?
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+
+

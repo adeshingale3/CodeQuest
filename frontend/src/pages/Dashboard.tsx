@@ -10,6 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 import { useUser } from '@/contexts/UserContext';
+import { useContext } from "react";
 
 export const challenges = [
   {
@@ -117,6 +118,8 @@ export const challenges = [
     description: "Merge two sorted arrays into a single sorted array.",
   }
 ];
+
+
 
 const Dashboard = () => {
   const { user, updateUserPoints } = useUser();
